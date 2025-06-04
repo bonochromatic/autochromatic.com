@@ -1,0 +1,499 @@
+/* Reset and base styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Variables for consistent theming */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #f8f9fa;
+    --text-color: #212529;
+    --light-text: #ffffff;
+    --section-padding: 6rem 0;
+    --transition: all 0.3s ease;
+    --navbar-height: 56px;
+}
+
+/* Mobile-first base styles */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* Section styles */
+section:not(.hero-section) {
+    padding: 3rem 0;
+}
+
+/* Services section (What We Build) */
+.services-section {
+    scroll-margin-top: var(--navbar-height);
+}
+
+.services-section .row {
+    margin: 0 -0.5rem;
+}
+
+.services-section .col-md-3 {
+    padding: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .services-section .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .services-section .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Remove carousel dots from services section */
+.services-section .carousel-indicators {
+    display: none;
+}
+
+/* Contact form submit button */
+.contact-section .btn-primary {
+    width: auto;
+    float: right;
+    margin-top: 1rem;
+}
+
+@media (max-width: 767px) {
+    .contact-section .btn-primary {
+        float: right;
+        width: auto;
+        padding: 0.75rem 2rem;
+    }
+    
+    .contact-section .btn-primary:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: var(--section-padding);
+}
+
+.services-section, 
+.benefits-section, 
+.testimonials-section {
+    padding: var(--section-padding);
+}
+
+.contact-section {
+    background-color: var(--secondary-color);
+    padding: var(--section-padding);
+}
+
+/* Component styles */
+.testimonial-slider {
+    padding: 1rem 0;
+}
+
+/* Card enhancements */
+.card {
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 150px; /* Smaller fixed height for card images */
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .card-img-top {
+        height: 200px;
+    }
+}
+
+/* Button styles */
+.btn {
+    transition: var(--transition);
+    padding: 0.75rem 1.5rem;
+    width: 100%; /* Full width buttons on mobile */
+}
+
+@media (min-width: 768px) {
+    .btn {
+        width: auto;
+    }
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Form styles */
+.form-control {
+    transition: var(--transition);
+    padding: 0.75rem; /* Larger touch targets */
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    border-color: var(--primary-color);
+}
+
+/* Responsive images */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Accessibility improvements */
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Form and thank you message styles */
+.form-container {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.thank-you-message {
+    text-align: center;
+    margin: 2rem 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.thank-you-message.visible {
+    display: block;
+    opacity: 1;
+}
+
+.thank-you-message h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.thank-you-message p {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Enable smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Testimonial Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%; /* Wider touch targets on mobile */
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+/* Reset opacity for focus and active states */
+.carousel-control-prev:focus,
+.carousel-control-next:focus,
+.carousel-control-prev:active,
+.carousel-control-next:active {
+    opacity: 0.5;
+}
+
+/* Make disabled state more faded */
+.carousel-control-prev.disabled,
+.carousel-control-next.disabled,
+.carousel-control-prev:disabled,
+.carousel-control-next:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: var(--primary-color);
+}
+
+.carousel-control-prev-icon::after {
+    content: '<-';
+    font-size: 2rem;
+}
+
+.carousel-control-next-icon::after {
+    content: '->';
+    font-size: 2rem;
+}
+
+/* Mobile-first Navigation */
+.navbar {
+    background-color: rgba(33, 37, 41, 0.98) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--light-text) !important;
+}
+
+.nav-link {
+    color: var(--light-text) !important;
+    opacity: 0.9;
+    transition: var(--transition);
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.2rem;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: rgba(33, 37, 41, 0.98);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Hero Section Styles */
+.hero-section {
+    height: 100vh;
+    padding-top: var(--navbar-height);
+    overflow: hidden;
+}
+
+.hero-section .container-fluid {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-section .row {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-section .col-lg-6 {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-content {
+    max-width: 600px;
+    padding: 0 2rem;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile Hero Optimizations */
+.hero-section .display-4 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-section .lead {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Mobile Services Carousel */
+@media (max-width: 767px) {
+    .services-section .row {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0;
+        padding: 1rem;
+        justify-content: center; /* Center the container */
+    }
+
+    .services-section .row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .services-section .col-md-3 {
+        flex: 0 0 85%;
+        margin-right: 1rem;
+        scroll-snap-align: center;
+    }
+
+    /* Remove margin from last card */
+    .services-section .col-md-3:last-child {
+        margin-right: 0;
+    }
+
+    /* Add padding to container to center first and last cards */
+    .services-section .container {
+        padding-left: max(1rem, calc((100vw - 85vw) / 2));
+        padding-right: max(1rem, calc((100vw - 85vw) / 2));
+    }
+
+    .services-section .card {
+        margin-bottom: 0;
+    }
+
+    .card-img-top {
+        height: 120px;
+    }
+}
+
+/* Mobile Benefits Accordion */
+@media (max-width: 767px) {
+    .benefits-section .col-md-3 {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+    }
+
+    .benefits-section h4 {
+        position: relative;
+        cursor: pointer;
+        padding-right: 2rem;
+    }
+
+    .benefits-section h4::after {
+        content: '+';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .benefits-section .expanded h4::after {
+        content: '-';
+    }
+
+    .benefits-section p {
+        display: none;
+        padding: 1rem 0;
+    }
+
+    .benefits-section .expanded p {
+        display: block;
+    }
+}
+
+/* Mobile Testimonials */
+@media (max-width: 767px) {
+    .testimonial-slider {
+        padding: 0;
+    }
+
+    .carousel-item {
+        padding: 1.5rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+
+    .testimonials-section .lead {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Mobile Contact Form */
+@media (max-width: 767px) {
+    .contact-section form {
+        padding: 1rem;
+    }
+
+    .form-control {
+        font-size: 16px; /* Prevent iOS zoom */
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+
+    .contact-section .btn-primary {
+        position: sticky;
+        bottom: 1rem;
+        margin-top: 2rem;
+    }
+}
+
+/* Fixed bottom bar */
+.fixed-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.fixed-bottom-bar.visible {
+    opacity: 1;
+    visibility: visible;
+} 
