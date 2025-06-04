@@ -19,4 +19,8 @@ Thumbs.db
 images/hero2.png
 images/card2.png
 images/card3.png
-images/card4-custom2.png 
+images/card4-custom2.png
+
+# Track all JPG files
+!*.jpg
+!*.jpeg 
